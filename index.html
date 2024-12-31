@@ -13,6 +13,10 @@
         <p class="description">Que tenga muchas felicidades y un muy buen incio de año</p>
         <div class="timer">
             <div class="sub_timer">
+                <h1 id="year" class="digit">0</h1>
+                <p class="digit_name">Años</p>
+            </div>
+            <div class="sub_timer">
                 <h1 id="day" class="digit">00</h1>
                 <p class="digit_name">Dias</p>
             </div>
@@ -42,11 +46,13 @@
             var now_mili_sec = new Date().getTime();
             var remaining_sec = Math.floor( (target_mili_sec - now_mili_sec) / 1000 );
 
+            var year = Math.floor(remaining_sec / (3600 * 24) / 365);
             var day = Math.floor(remaining_sec / (3600 * 24));
             var hour = Math.floor((remaining_sec % (3600 * 24)) / 3600);
             var min = Math.floor((remaining_sec % 3600) / 60);
             var sec = Math.floor(remaining_sec % 60);
 
+            document.querySelector("#year").innerHTML = year;
             document.querySelector("#day").innerHTML = day;
             document.querySelector("#hour").innerHTML = hour;
             document.querySelector("#min").innerHTML = min;
